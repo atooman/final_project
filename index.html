@@ -162,7 +162,7 @@
             
             //  img and div inside the button:
             var image = document.createElement('img');
-            image.src = '/images/christmas_wallpaper.jpeg';
+            image.src = 'images/christmas_wallpaper.jpeg';
             image.classList.add('photo_card')
             var insideDiv = document.createElement('div');
             insideDiv.value = date;
@@ -195,14 +195,14 @@
             var selectedOptionMood = selectElementMood.options[selectedIndexMood];
             var moodImage = document.createElement('img');
             if (selectedOptionMood.value == 'happy') {
-                moodImage.src = '/images/smiling-face.png';
+                moodImage.src = 'images/smiling-face.png';
             } else if (selectedOptionMood.value == 'sad') {
-                moodImage.src = '/images/sad.png';
+                moodImage.src = 'images/sad.png';
             } else if (selectedOptionMood.value == 'bored') {
-                moodImage.src = '/images/bored.png';
+                moodImage.src = 'images/bored.png';
             } else {
                 // blushy
-                moodImage.src = '/images/hearts.png';
+                moodImage.src = 'images/hearts.png';
             }
             moodImage.classList.add('emotion');
 
@@ -211,16 +211,16 @@
             var selectedIndexWeather = selectElementWeather.selectedIndex;
             var selectedOptionWeather = selectElementWeather.options[selectedIndexWeather];
             if (selectedOptionWeather.value == 'sunny') {
-                weatherImage.src = '/images/sunlight.png';
+                weatherImage.src = 'images/sunlight.png';
             } else if (selectedOptionWeather.value == 'partly') {
-                weatherImage.src = '/images/partly-cloudy.png';
+                weatherImage.src = 'images/partly-cloudy.png';
             } else if (selectedOptionWeather.value == 'cloudy') {
-                weatherImage.src = '/images/cloudy.png';
+                weatherImage.src = 'images/cloudy.png';
             } else if (selectedOptionWeather.value == 'rainy') {
-                weatherImage.src = '/images/rainy-day.png';
+                weatherImage.src = 'images/rainy-day.png';
             } else {
                 // blushy
-                weatherImage.src = '/images/snowman.png';
+                weatherImage.src = 'images/snowman.png';
             }
             weatherImage.classList.add('emotion');
 
@@ -229,12 +229,12 @@
             var selectedIndexWater = selectElementWater.selectedIndex;
             var selectedOptionWater = selectElementWater.options[selectedIndexWater];
             if (selectedOptionWater.value == 'low') {
-                waterImage.src = '/images/water.png';
+                waterImage.src = 'images/water.png';
             } else if (selectedOptionWater.value == 'high') {
-                waterImage.src = '/images/wave.png';
+                waterImage.src = 'images/wave.png';
             } else {
                 // medium
-                waterImage.src = '/images/bucket.png';
+                waterImage.src = 'images/bucket.png';
             }
             waterImage.classList.add('emotion');
 
