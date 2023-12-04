@@ -1,0 +1,553 @@
+
+/* GENERAL STYLING */
+html {
+    background-color: #1b3934;
+    width: 100%;
+    height: 100%;
+    font-family: 'Crimson Text', serif;
+    font-size: 0.9vw;
+}
+
+p {
+    font-size: 1.1vw;
+    margin-left: 6%;
+    margin-right: 14%;
+    line-height: 1.5;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* MOBILE STYLING */
+#button_grid{
+    position: relative;
+    left: 20%;
+    height: 60%; 
+    width: 60%;
+    top: 25%;
+}
+
+.big-title{
+    height: 20%;
+    font-size: 12vw;
+    color: white;
+    margin-bottom: 9%;
+    margin-top: 6%;
+    font-family: 'Amatic SC', sans-serif;
+    text-align: center;
+}
+
+.photo_card_dynamic{
+    height: 90%;
+    width: 100%;
+    margin-bottom: 8%;
+    background-color: white;
+    font-family: 'Crimson Text', serif;
+    box-shadow: 0px 5px 10px 0px rgba(173, 167, 167, 0.5);
+}
+
+.photo_card{
+    height: 93%;
+    width: 90%;
+}
+
+form {
+    display: block;
+    position: absolute;
+    top: 19%;
+    background-color: white;
+    width: 80%;
+    left: 10%;
+    height: auto;
+    border-radius: 4px;
+    font-size: 2vw;
+    padding: 1%;
+    padding-bottom: 3%;
+}
+
+form h1 {
+    margin-left: 8%;
+}
+
+h1{
+    font-size: 3vw;
+}
+
+#add_entry{
+    position: relative;
+    left: 35%;
+    margin-top: 2%;
+}
+
+.bottom_input{
+    display: flex;
+    margin-left: 3%;
+    flex-wrap: wrap;
+    margin-top: 3%;
+    gap: 5px;
+}
+
+.top_input{
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button:hover{
+    transform: scale(1.1)
+}
+
+.heading{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 0%;
+    font-size: 2vw;
+}
+
+.emotion{
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 15%;
+}
+
+.scroll_section p {
+    font-size: 1.75vw;
+}
+
+.text_container .scroll_section{
+    margin-top: 9%;
+    margin-left: 4%;
+    font-size: 2vw;
+}
+
+.white_background{
+    width: 80%;
+    height: 75%;
+    background-color: white;
+    overflow-y: auto;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.white_background .title{
+    font-size: 6vw;
+}
+
+.white_background .text_container .heading{
+    font-size: 3vw;
+}
+
+.white_background .text_container .heading div{
+    font-size: 2.5vw;
+}
+
+.white_background .text_container .heading p{
+    font-size: 2vw;
+}
+
+
+#image_container{
+    height: 100%;
+    width: 100%;
+}
+
+/* Dynamic idea */
+
+.expanded {
+    background-color: white;
+    top: 0;
+    position: absolute;
+    transform-origin: top left;
+    left: 9%;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.close_button {
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    height:4%;
+    width: 6%;
+    border-radius: 40px;
+    z-index: 2;
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1024px) {
+   
+    button {
+        height: 220px;
+        width: 160px;
+        background-color: white;
+        box-shadow: 0px 5px 10px 0px rgba(173, 167, 167, 0.5);
+    }
+
+    h1{
+        margin: 2% 2%;
+    }
+
+    .top_input{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-evenly;
+        margin-left: 0%;
+        gap: 2px;
+        flex-wrap: nowrap;
+    }
+
+    #add_entry{
+        width: auto;
+        height: auto;
+        position: relative;
+        left: 42%;
+        margin-left: 0%;
+        margin-top: 0%;
+        padding-top: 0.1%;
+        padding-bottom: 0.1%;
+    }
+
+    .bottom_input{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-evenly;
+        margin-bottom: 3%;
+        margin-left: 0%;
+        flex-wrap: nowrap;
+    }
+    
+    .title{
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 5vw;
+        text-align: center;
+        margin-bottom: 4%;
+    }
+    
+    #image_container{
+        width: 90%;
+        height: 90%;
+        margin-top: 5%;
+        margin-left: 5%; 
+        margin-right: 5%;
+    }
+    
+    .photo_card {
+        width: 99%; 
+        height: 85%; 
+    }
+    
+    .text_card{
+        background-color: white;
+        font-family: 'Crimson Text', serif;
+        width: 100%;
+        margin-top: 2%;
+    }
+    
+    button:hover{
+        transform: scale(1.1);
+    }
+    
+    .expanded {
+        /* Expand to full height */
+        top: 0; /* Align to the top of the window */
+        left: 0; /* Align to the left of the window */
+    }
+    
+    .white_background{
+        width: 80%;
+        height: 75%;
+        background-color: white;
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        overflow-y: auto;
+    }
+    
+    .heading{
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: 0%;
+        font-size: 2vw;
+    }
+    
+    .emotion{
+        height: 30px;
+        width: 30px;
+        position: relative;
+        top: 15%;
+    }
+    
+    .scroll_section{
+        display: flex;
+        flex-direction: column;
+        margin-left: 8%;
+        margin-top: 3%;
+        font-size: 2vw;
+        height: 70%; 
+        overflow-y: auto;
+    }
+    
+    #button_grid{
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        height: 40%;
+        gap: 3%;
+        margin-top: 0%;
+        left: 0%;
+        overflow-y: hidden;
+        justify-content: space-evenly;
+        top: 0%;
+    }
+
+    .big-title{
+        font-size: 8vw;
+        color: white;
+        height: auto;
+    }
+    
+    
+    /* Dynamic idea */
+    
+    #input_box{
+        background-color: white;
+        height: 42%;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        margin-top: 2%;
+    }
+
+    .photo_card_dynamic {
+        /* Adjust these dimensions as needed */
+        height: 220px;
+        min-width: 160px;
+        max-width: 160px;
+        background-color: white;
+        font-family: 'Crimson Text', serif;
+        box-shadow: 0px 5px 10px 0px rgba(173, 167, 167, 0.5);
+    }
+    
+    .expanded {
+        position: absolute;
+        background-color: white;
+        top: 0;
+        height: 70%;
+        width: 60%;
+        transform-origin: top left;
+        left: 0;
+        visibility: hidden;
+        transition: all 0.3s ease; /* Add a transition for a smooth animation */
+    }
+    
+    .close_button {
+        position: absolute;
+        visibility: hidden;
+        background-color: white;
+        height:6%;
+        width: 4%;
+        border-radius: 40px;
+        z-index: 1;
+    }
+
+}
+
+
+/* TABLET */
+@media only screen and (min-width: 768px) {
+    form {
+        position: absolute;
+        top: 0%;
+        background-color: white;
+        width: 80%;
+        left: 10%;
+        height: 25%;
+        border-radius: 4px;
+        font-size: 2vw;
+    }
+    
+    button {
+        height: 220px;
+        width: 160px;
+        background-color: white;
+        box-shadow: 0px 5px 10px 0px rgba(173, 167, 167, 0.5)
+    }
+
+    h1{
+        margin: 2% 2%;
+    }
+
+    .top_input{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-evenly;
+        margin-left: 0%;
+        gap: 2px;
+        flex-wrap: nowrap;
+    }
+
+    #add_entry{
+        width: auto;
+        height: auto;
+        position: relative;
+        left: 42%;
+        margin-left: 0%;
+        margin-top: 0%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    .bottom_input{
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-evenly;
+        margin-bottom: 3%;
+        margin-left: 0%;
+        flex-wrap: nowrap;
+    }
+    
+    .title{
+        font-family: 'Amatic SC', sans-serif;
+        font-size: 5vw;
+        text-align: center;
+        margin-bottom: 4%;
+    }
+    
+    #image_container{
+        width: 90%;
+        height: 90%;
+        margin-top: 5%;
+        margin-left: 5%; 
+        margin-right: 5%;
+    }
+    
+    .photo_card {
+        width: 99%; 
+        height: 85%; 
+    }
+    
+    .text_card{
+        background-color: white;
+        font-family: 'Crimson Text', serif;
+        width: 100%;
+        margin-top: 2%;
+    }
+    
+    button:hover{
+        transform: scale(1.1)
+    }
+
+    .white_background{
+        width: 80%;
+        height: 75%;
+        background-color: white;
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        overflow-y: auto;
+    }
+    
+    .heading{
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: 0%;
+        font-size: 2vw;
+    }
+    
+    .emotion{
+        height: 30px;
+        width: 30px;
+        position: relative;
+        top: 15%;
+    }
+    
+    .scroll_section{
+        display: flex;
+        flex-direction: column;
+        margin-left: 8%;
+        margin-top: 3%;
+        font-size: 2vw;
+        height: 70%; 
+        overflow-y: auto;
+    }
+    
+    #button_grid{
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        height: 40%;
+        gap: 3%;
+        margin-top: 0%;
+        left: 0%;
+        overflow-y: hidden;
+        justify-content: space-evenly;
+        top: 0%;
+    }
+
+    .big-title{
+        font-size: 8vw;
+        color: white;
+        height: auto;
+    }
+    
+    
+    /* Dynamic idea */
+    
+    #input_box{
+        background-color: white;
+        height: 42%;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        margin-top: 2%;
+    }
+
+    .photo_card_dynamic {
+        /* Adjust these dimensions as needed */
+        height: 220px;
+        min-width: 160px;
+        max-width: 160px;
+        background-color: white;
+        font-family: 'Crimson Text', serif;
+        box-shadow: 0px 5px 10px 0px rgba(173, 167, 167, 0.5);
+    }
+    
+    .expanded {
+        position: absolute;
+        background-color: white;
+        top: 0;
+        height: 70%;
+        width: 60%;
+        transform-origin: top left;
+        left: 0;
+        visibility: hidden;
+        transition: all 0.3s ease; /* Add a transition for a smooth animation */
+    }
+    
+    .close_button {
+        position: absolute;
+        visibility: hidden;
+        background-color: white;
+        height:6%;
+        width: 4%;
+        border-radius: 40px;
+        z-index: 1;
+    }
+}

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Crimson+Text&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Travel Blog</title>
+</head>
+<body>
+    
+    <main id="main">
+
+        <div id="image_container">
+            <div class="title big-title">My Journal Board</div>
+            <div id="button_grid">
+            </div>
+
+            <!-- Template -->
+            <div id="input_box">
+                <form action="" id="loginForm">
+                    <h1>Submit An Entry</h1>
+                    <div class="top_input">
+                        <div>
+                            <label>Date:</label>
+                            <input type="text" id="date" placeholder="">
+                        </div>
+                        <div>
+                            <label for="mood">Mood:</label> 
+                            <select name="mood" id="mood_options"> 
+                                <option value="happy">Happy</option> 
+                                <option value="sad">Sad</option> 
+                                <option value="bored">Bored</option> 
+                                <option value="blushy">Blushy</option> 
+                            </select>
+                        </div>
+                        <div>
+                            <label for="mood">Weather:</label> 
+                            <select name="weather" id="weather_options"> 
+                                <option value="sunny">Sunny</option> 
+                                <option value="partly">Partly sunny</option> 
+                                <option value="cloudy">Cloudy</option> 
+                                <option value="rainy">Rainy</option> 
+                                <option value="snowy">Snowy</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="water">Water intake:</label> 
+                            <select name="water" id="water_options"> 
+                                <option value="low">low</option> 
+                                <option value="medium">medium</option> 
+                                <option value="high">high</option> 
+                            </select>
+                        </div>
+                    </div>
+                    <div class="bottom_input">
+                        <div>
+                            <label>Happy Moment:</label>
+                            <input type="text" id="highlight" placeholder="">
+                        </div>
+                        <div>
+                            <label>Yummy Moment:</label>
+                            <input type="text" id="yummy" placeholder="">
+                        </div>
+                        <div>
+                            <label>Something I learned:</label>
+                            <input type="text" id="learned" placeholder="">
+                        </div>
+                    </div>
+                   
+                    <button id="add_entry">Add New Entry</button>
+                </form>
+            </div>
+        </div>
+        
+    </main>
+
+    <script>
+
+        function handleDynamicButtonClick(date) {
+            return function (event) {
+                var button = event.currentTarget;
+                var buttonRect = button.getBoundingClientRect();
+
+                var xCoordinate = buttonRect.left + window.scrollX;
+                var yCoordinate = buttonRect.top + window.scrollY;
+
+                var expandedId = 'expanded_' + date.replace(/\s+/g, '_').toLowerCase();
+                var expandedElement = document.getElementById(expandedId);
+
+                // get screen dimensions
+                var screenWidth = window.innerWidth;
+
+                if (screenWidth <= 724) {
+                    // Mobile view
+                    expandedElement.style.width = buttonRect.width + 'px';
+                    expandedElement.style.height = buttonRect.height + 'px';
+                    expandedElement.style.top = yCoordinate + 'px';
+                    expandedElement.style.left = xCoordinate + 'px';
+                } 
+                else{
+                    expandedElement.style.width = (buttonRect.width * 2) + 'px';
+                    expandedElement.style.height = buttonRect.height * 2 + 'px';
+                }
+                expandedElement.style.top = yCoordinate + 'px';
+                expandedElement.style.left = xCoordinate + 'px';
+                expandedElement.style.visibility = 'visible';
+
+                // make div grow/scale from here
+                expandedElement.classList.add('expanded');
+                setTimeout(function () {
+                    placeDynamicButton(expandedId);
+                }, 350);
+            };
+        }
+
+
+        function placeDynamicButton(expandedId) {
+            var expandedElement = document.getElementById(expandedId);
+            var closeButtonId = 'close_button_' + expandedId.replace('expanded_', '');
+            var closeButton = document.getElementById(closeButtonId);
+            
+            if (window.getComputedStyle(expandedElement).visibility === 'visible') {
+                var xCoordinate = expandedElement.offsetLeft + expandedElement.offsetWidth - 30;
+                var yCoordinate = expandedElement.offsetTop - 20;
+
+                closeButton.style.top = yCoordinate + 'px';
+                closeButton.style.left = xCoordinate + 'px';
+                closeButton.style.visibility = 'visible';
+            }
+        }
+
+        function handleDynamicCloseButtonClick(expandedId) {
+            return function (event) {
+                var expandedElement = document.getElementById(expandedId);
+                expandedElement.classList.remove('expanded');
+                expandedElement.style.visibility = 'hidden';
+
+                var closeButtonId = 'close_button_' + expandedId.replace('expanded_', '');
+                var closeButton = document.getElementById(closeButtonId);
+                closeButton.style.visibility = 'hidden';
+            };
+        }
+
+        // Dynamic code idea
+        let loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let date = document.getElementById("date").value;
+            let highlight = document.getElementById("highlight").value;
+            let yummy = document.getElementById("yummy").value;
+            let learned = document.getElementById("learned").value;
+
+            // Create a new button
+            var newButton = document.createElement('button');
+            newButton.classList.add('photo_card_dynamic');
+            newButton.style.backgroundColor = generateRandomColor();
+            
+            //  img and div inside the button:
+            var image = document.createElement('img');
+            image.src = '/images/christmas_wallpaper.jpeg';
+            image.classList.add('photo_card')
+            var insideDiv = document.createElement('div');
+            insideDiv.value = date;
+            newButton.appendChild(image);
+            newButton.appendChild(insideDiv);
+            document.getElementById('button_grid').appendChild(newButton);
+
+            // Create corresponding expanded entry div
+            var expandedId = 'expanded_' + date.replace(/\s+/g, '_').toLowerCase();
+            var expandedElement = document.createElement('div');
+            expandedElement.id = expandedId;
+            expandedElement.classList.add('expanded');
+
+            var whiteBackground = document.createElement('div');
+            whiteBackground.classList.add('white_background');
+
+            var title = document.createElement('div');
+            title.classList.add('title');
+            title.textContent = date;
+
+            var textContainer = document.createElement('div');
+            textContainer.classList.add('text_container');
+            var heading = document.createElement('div');
+            heading.classList.add('heading');
+
+            var mood = document.createElement('div');
+            mood.textContent = "mood:";
+            var selectElementMood = document.getElementById('mood_options'); // Use a unique id for mood dropdown
+            var selectedIndexMood = selectElementMood.selectedIndex;
+            var selectedOptionMood = selectElementMood.options[selectedIndexMood];
+            var moodImage = document.createElement('img');
+            if (selectedOptionMood.value == 'happy') {
+                moodImage.src = '/images/smiling-face.png';
+            } else if (selectedOptionMood.value == 'sad') {
+                moodImage.src = '/images/sad.png';
+            } else if (selectedOptionMood.value == 'bored') {
+                moodImage.src = '/images/bored.png';
+            } else {
+                // blushy
+                moodImage.src = '/images/hearts.png';
+            }
+            moodImage.classList.add('emotion');
+
+            var weatherImage = document.createElement('img');
+            var selectElementWeather = document.getElementById('weather_options');
+            var selectedIndexWeather = selectElementWeather.selectedIndex;
+            var selectedOptionWeather = selectElementWeather.options[selectedIndexWeather];
+            if (selectedOptionWeather.value == 'sunny') {
+                weatherImage.src = '/images/sunlight.png';
+            } else if (selectedOptionWeather.value == 'partly') {
+                weatherImage.src = '/images/partly-cloudy.png';
+            } else if (selectedOptionWeather.value == 'cloudy') {
+                weatherImage.src = '/images/cloudy.png';
+            } else if (selectedOptionWeather.value == 'rainy') {
+                weatherImage.src = '/images/rainy-day.png';
+            } else {
+                // blushy
+                weatherImage.src = '/images/snowman.png';
+            }
+            weatherImage.classList.add('emotion');
+
+            var waterImage = document.createElement('img');
+            var selectElementWater = document.getElementById('water_options');
+            var selectedIndexWater = selectElementWater.selectedIndex;
+            var selectedOptionWater = selectElementWater.options[selectedIndexWater];
+            if (selectedOptionWater.value == 'low') {
+                waterImage.src = '/images/water.png';
+            } else if (selectedOptionWater.value == 'high') {
+                waterImage.src = '/images/wave.png';
+            } else {
+                // medium
+                waterImage.src = '/images/bucket.png';
+            }
+            waterImage.classList.add('emotion');
+
+
+            var weather = document.createElement('div');
+            weather.textContent = "weather:"
+            var water = document.createElement('div');
+            water.textContent = "water:"
+
+            var scroll_section = document.createElement('div');
+            scroll_section.classList.add('scroll_section');
+            
+            var highlightText = document.createElement('div');  
+            highlightText.textContent = 'highlight of the day:';
+            var highlightInner = document.createElement('p');  
+            highlightInner.textContent = highlight;
+
+
+            var yummyText = document.createElement('div');  
+            yummyText.textContent = 'yummy moment:';
+            var yummyInner = document.createElement('p');  
+            yummyInner.textContent = yummy;
+            console.log("this is yummy momment ", yummy)
+
+
+            var learnedText = document.createElement('div');  
+            learnedText.textContent = "something i learned";
+            var learnedInner = document.createElement('p');  
+            learnedInner.textContent = learned;
+
+            // Create corresponding close button div
+            var closeButtonId = 'close_button_' + date.replace(/\s+/g, '_').toLowerCase();
+            var closeButton = document.createElement('button');
+            closeButton.id = closeButtonId;
+            closeButton.classList.add('close_button');
+            closeButton.textContent = "X";
+
+
+            // closeButton.onclick = function() { closeEntry(expandedId, closeButtonId); };
+            document.body.appendChild(closeButton);
+
+            water.appendChild(waterImage)
+            mood.appendChild(moodImage)
+            weather.appendChild(weatherImage)
+            highlightText.appendChild(highlightInner)
+            yummyText.appendChild(yummyInner)
+            learnedText.appendChild(learnedInner)
+            scroll_section.appendChild(highlightText)
+            scroll_section.appendChild(yummyText)
+            scroll_section.appendChild(learnedText)
+            heading.appendChild(mood);
+            heading.appendChild(weather);
+            heading.appendChild(water);
+            textContainer.appendChild(heading);
+            textContainer.appendChild(scroll_section);
+            whiteBackground.appendChild(title);
+            whiteBackground.appendChild(textContainer);
+            expandedElement.appendChild(whiteBackground);
+            document.body.appendChild(expandedElement);
+
+            closeButton.addEventListener('click', handleDynamicCloseButtonClick('expanded_' + date.replace(/\s+/g, '_').toLowerCase()));
+            newButton.addEventListener('click', handleDynamicButtonClick(date));
+        });
+
+
+        function generateRandomColor(){
+            let maxVal = 0xFFFFFF; // 16777215
+            let randomNumber = Math.random() * maxVal; 
+            randomNumber = Math.floor(randomNumber);
+            randomNumber = randomNumber.toString(16);
+            let randColor = randomNumber.padStart(6, 0);   
+            return `#${randColor.toUpperCase()}`
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
